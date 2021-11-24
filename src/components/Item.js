@@ -1,32 +1,23 @@
-// import React , {useState} from "react";
+import React , {useState} from "react";
 
-// function Item({ name, category }) {
-//   return (
-//     <li className="">
-//       <span>{name}</span>
-//       <span className="category">{category}</span>
-//       <button className="add">Add to Cart</button>
-//     </li>
-//   );
-// }
-
-// export default Item;
-
-import React from "react";
-import { useState}  from "react"
 function Item({ name, category }) {
-  const [inCart, setInCart] = useState(false)
-  const shop = () => {
-    setInCart(!inCart)
-    
+  const [isAdd, setIsAdd] = useState(false)
+  function handleClick (){
+    setIsAdd((isAdd) => !isAdd)
   }
   return (
-    <li className= {inCart? "in-cart" : ""}>
+    <li className={isAdd? "in-cart" : ""}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add" onClick={shop}>{inCart? "Remove From Cart" : "Add to Cart"}</button>
+      <button className={isAdd? "remove" : "add"} onClick = {handleClick}>{isAdd? "Remove From Cart" : "Add to Cart"}</button>
     </li>
   );
 }
 
-export default Item;
+export default Item
+
+
+
+
+
+
